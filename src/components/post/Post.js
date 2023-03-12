@@ -1,6 +1,6 @@
 import './post.css';
 
-const Post = () => {
+const Post = ({ post }) => {
   return (
     <div className="post">
       <img
@@ -11,25 +11,14 @@ const Post = () => {
       <div className="postInfo">
         <div className="postCats">
           <span className="postCat">Music</span>
-          <span className="postCat">Life</span>
         </div>
-        <span className="postTitle">Lorem ipsum dolor sit amet.</span>
+        <span className="postTitle">{post.title}</span>
         <hr />
-        <span className="postDate">1 hour ago</span>
+        <span className="postDate">
+          {new Date(post.createdAt).toDateString()}
+        </span>
       </div>
-      <p className="postDesc">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem
-        exercitationem aspernatur minus fugiat, voluptatum cum sunt laboriosam
-        maiores consequuntur non autem culpa veritatis sapiente vitae pariatur
-        aliquid dolor temporibus commodi? Lorem ipsum dolor, sit amet
-        consectetur adipisicing elit. Dolorem exercitationem aspernatur minus
-        fugiat, voluptatum cum sunt laboriosam maiores consequuntur non autem
-        culpa veritatis sapiente vitae pariatur aliquid dolor temporibus
-        commodi? Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Dolorem exercitationem aspernatur minus fugiat, voluptatum cum sunt
-        laboriosam maiores consequuntur non autem culpa veritatis sapiente vitae
-        pariatur aliquid dolor temporibus commodi?
-      </p>
+      <p className="postDesc">{post.description}</p>
     </div>
   );
 };
